@@ -1,0 +1,24 @@
+.navbar.navbar-fixed-top
+  .container
+    .navbar-header
+      a.navbar-brand(href='/') Meetup Event Planner
+      ul.nav.navbar-nav
+        if user
+          li
+            a(href='/profile') Profile
+          li
+            a(href='/logout') Logout
+        if !user
+          li
+            a(href='/login') Login
+          li
+            a(href='/register') Register
+          li
+            a(href='/create_event') Create Event
+
+.container.message-box
+  if messages
+    each type in Object.keys(messages)
+      .messages(class="#{type}")
+        each message in messages[type]
+          p= message

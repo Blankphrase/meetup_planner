@@ -1,0 +1,74 @@
+extends ../layout
+
+block content
+  include ../includes/header
+
+  .container
+    h1 Create an event
+    form
+      label(for='eventName') Event Name
+      input(
+        type='text' 
+        id='eventName' 
+        name='eventName' 
+        placeholder='Event Name'
+        required)
+      
+      label(for='category') Category
+      select(id='category' name='category')
+        option(value='Birthday') Birthday
+        option(value='Conference') Conference
+        option(value='Ceremony') Ceremony
+        option(value='Educational') Educational
+        option(value='Party') Party
+        option(value='Social') Social
+        option(value='Others') Others
+      
+      label(for='host') Host
+      input(
+        type='text' 
+        id='host' 
+        name='host' 
+        placeholder='Host'
+        autocomplete='name'
+        required)
+      
+      label(for='startDate') Start Date
+      input(
+        type="datetime-local"
+        id='startDate' 
+        name='startDate' 
+        required)
+      
+      label(for='endDate') End Date
+      input(
+        type="datetime-local"
+        id='endDate' 
+        name='endDate' 
+        required)
+          
+      label(for='location') Location
+      input(
+        type='text' 
+        id='location' 
+        name='location' 
+        placeholder='Location'
+        autocomplete='street-address'
+        required)
+      
+      label(for='guestList') Guest List
+      input(
+        type='text' 
+        id='guestList' 
+        name='guestList' 
+        placeholder='Guest List'
+        autocomplete='name'
+        required)
+
+      label(for='message') Message(Optional)
+      input(
+        type='text' 
+        id='message' 
+        name='message' 
+        placeholder='Optional message'
+        required)
