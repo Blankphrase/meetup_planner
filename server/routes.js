@@ -26,7 +26,7 @@ module.exports = function(app){
 	});
 
 	app.post('/create_event', function(req, res){
-
+    
 	});
 
 	app.get('/edit_event', function(req, res){

@@ -1,0 +1,54 @@
+/* Overwrite Bootstrap CSS  */
+
+.navigationBar > ul li {
+  margin: 13px 20px 0 0;
+  font-size: 1.15em;
+}
+
+.headerTitle {
+  font-size: 2.1em;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+label {
+  margin: 0;
+}
+
+label,
+input,
+button,
+textarea,
+select {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+/* Disable selecting on a long touch */
+a,
+button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+textarea {
+  color: #777;
+}
+
+#createButton {
+  width: calc(100% - 10px);
+}
+
+.error {
+  font-size: 1.2em;
+}
+
+.footerNote {
+  font-size: 1.1em;
+}
+
+.heartIcon {
+  margin:0 5px 4px 0;
+}

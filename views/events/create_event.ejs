@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Yuichi Hagio">
+    <meta name="description" content="Meetup Event Planner (Front-End)">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.3.4/css/bootstrap-datetimepicker.min.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/main.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/overwrite.css" media="screen">
+    <title>Meetup Event Planner</title>
+  </head>
+  <body ontouchstart>
+    <nav class="navigationBar">
+      <ul>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/">Events</a></li>
+        <li><a href="/create_event" class="activeLink">Create Event</a></li>
+      </ul>
+    </nav>
+
+    <div class="mainContainer">
+
+      <!-- Event creation -->
+      <section class="eventCreation">
+        <form id="eventCreationForm" class="eventForm" action="/events" method="get">
+          <h1 class="headerTitle">Create Event</h1>
+          <p>* Required</p>
+
+          <label for="eventName">Event Name*</label><br />
+          <span id="errEventName" class="error"></span>
+          <input
+            onkeyup="checkEventName()"
+            id="eventName"
+            type="text"
+            name="eventName"
+            placeholder="Event Name"
+            required
+            autofocus />
+
+          <label for="eventType">Event Type*</label><br />
+          <span id="errEventType" class="error"></span>
+          <select onchange="checkEventType()" id="eventType" name="eventType" required>
+            <option selected disabled value="">Choose one</option>
+            <option value="Birthday" >Birthday</option>
+            <option value="Conference" >Conference</option>
+            <option value="Ceremony" >Ceremony</option>
+            <option value="Educational" >Educational</option>
+            <option value="Leisure" >Leisure</option>
+            <option value="Networking" >Networking</option>
+            <option value="Party" >Party</option>
+            <option value="Social" >Social</option>
+            <option value="Sports" >Sports</option>
+            <option value="Others" >Others</option>
+          </select>
+
+          <label for="eventHost">Event Host*</label><br />
+          <span id="errEventHost" class="error"></span>
+          <input
+            onkeyup="checkEventHost()"
+            id="eventHost"
+            type="text"
+            name="eventHost"
+            placeholder="Event Host Name"
+            autocomplete="name"
+            required />
+
+          <label for="startDate">Start Date/Time*</label><br />
+          <span id="errEventStartDate" class="error"></span>
+          <input
+            onkeyup="checkEventStartDate()"
+            id="startDate"
+            type="datetime-local"
+            name="startDate"
+            required />
+
+          <label for="endDate">End Date/Time*</label><br />
+          <span id="errEventEndDate" class="error"></span>
+          <input
+            onkeyup="checkEventEndDate()"
+            id="endDate"
+            type="datetime-local"
+            name="endDate"
+            required />
+
+          <label for="location">Event Location*</label><br />
+          <span id="errEventLocation" class="error"></span>
+          <input
+            onkeyup="checkEventLocation()"
+            id="location"
+            type="text"
+            name="location"
+            placeholder="Event Location/Address"
+            autocomplete="street-address"
+            required />
+
+          <label for="message">(Optional) Message</label><br />
+          <span id="errMessage" class="error"></span>
+          <textarea
+            onkeyup="checkMessage()"
+            id="message"
+            rows="10"
+            name="message"
+            placeholder="(Optional) message"></textarea>
+
+
+          <button id="createButton" type="submit" class="canSubmit">Create</button>
+        </form>
+      </section>
+
+    </div>
+
+    <footer>
+      <p class="footerNote">
+        Built with <span><img class="heartIcon" src="images/iconmonstr-favorite-icon-48.png" alt="heart icon"></span>by Yuichi Hagio
+      </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.3.4/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/javascripts/helpers.js"></script>
+    <script src="/javascripts/eventCreation.js"></script>
+  </body>
+</html>

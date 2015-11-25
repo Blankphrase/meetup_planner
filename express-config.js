@@ -14,7 +14,7 @@ var MongoStore = require('connect-mongo')(session);
 module.exports.expressSetup = function(app){
   app.set('port', process.env.PORT || 3000);
   app.set('views', path.join(__dirname, '/views'));
-  app.set('view engine', 'jade');
+  app.set('view engine', 'ejs');
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());

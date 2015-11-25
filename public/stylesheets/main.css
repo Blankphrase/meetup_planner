@@ -1,0 +1,244 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: #B0C4DE;
+  background-image:
+    linear-gradient(
+      #0099CC, #00CCFF
+    );
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: #555;
+}
+
+a:active {
+  color: #00CC99;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+label,
+input,
+button,
+textarea {
+  font-size: 1.1em;
+  font-weight: 700;
+  line-height: normal;
+}
+
+label > span {
+  font-size: 0.9em;
+}
+
+input,
+button,
+textarea,
+.registration,
+.eventCreation {
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+/* Disable selecting on a long touch */
+a,
+button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+}
+
+button:active {
+  background-color: #001166;
+}
+
+.registration,
+.eventCreation,
+.eventList {
+  max-width: 800px;
+  margin: auto;
+}
+
+.canSubmit {
+  background: #00CC66;
+  color: #fff;
+}
+
+input {
+  display: block;
+  width: -webkit-calc(100% - 10px);
+  width: -moz-calc(100% - 10px);
+  width: calc(100% - 10px);
+  height: 40px;
+  margin: 3px 0 20px 0;
+  padding-left: 10px;
+  background-color: #efefef;
+  color: #777;
+}
+
+input:focus {
+  -webkit-appearance: none;
+  -moz-box-shadow: 0 0 10px #00FF00;
+  -webkit-box-shadow: 0 0 10px #00FF00;
+  box-shadow: 0 0 10px #00FF00;
+  background-color: #fff;
+  height: 43px;
+}
+
+textarea {
+  width: -webkit-calc(100% - 10px);
+  width: -moz-calc(100% - 10px);
+  width: calc(100% - 10px);
+  margin: 3px 0 0 0;
+  padding-left: 10px;
+}
+
+/* Container
+ */
+.mainContainer {
+  min-height: 100%;
+  margin: 45px 0 0 0;
+  padding: 10px 10px 50px 10px;
+  color: #fff;
+}
+
+/*
+ * User Registration Form
+ */
+.registration {
+  padding: 10px;
+  border: 1px solid #B0C4DE;
+  /*background: #ccc;*/
+}
+
+.headerTitle {
+}
+
+/*
+ * Event Creation Form
+ */
+.eventCreation {
+  padding: 10px;
+  border: 1px solid #B0C4DE;
+}
+
+#message {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align:top;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: calc(100% - 10px);
+  height: 38px;
+  color: #777;
+  margin: 3px 0 20px 0;
+  background-color: #fff;
+}
+
+/* Error */
+.error {
+  color: rgb(130, 6, 23);
+}
+
+.tip {
+  font-size: 0.9em;
+  margin: 5px;
+}
+
+.errorBorder {
+  border: 1px solid #FF0000;
+}
+
+
+/* Navigation */
+.navigationBar {
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.navigationBar > ul > li {
+  display: inline-block;
+  height: 18px;
+  margin: 0 20px 0 0;
+}
+
+.activeLink {
+  color: #00CC99;
+}
+
+/* Events Page */
+.eventGroup {
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  margin: 10px 0 20px 0;
+  padding: 10px;
+}
+
+.badge {
+  border-radius: 20px;
+  background: #fff;
+  margin-top: 10px;
+  padding: 5px 10px;
+  color: #000;
+}
+
+.eventLabel {
+  color: #333;
+}
+
+.eventLabel {
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  margin: 0;
+  padding: 0 0 20px 0;
+}
+
+.footerNote {
+  text-align: center;
+  margin: auto;
+  max-width: 250px;
+  color: #fff;
+}
+
+.heartIcon {
+  width: 18px;
+  margin:0 5px -2px 0;
+}

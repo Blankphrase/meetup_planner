@@ -4,9 +4,9 @@
 Web application that lets anyone create events easily
 
 ### Features / Functions
-- User registration/login system (Name, Email, Password, Options)
+- User registration/login
 - Event creation
--
+- Browse events
 
 ### Technology stack
 - HTML5, CSS3, Javascript, Node.js, Express.js, MongoDB
