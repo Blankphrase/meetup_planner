@@ -1,28 +1,14 @@
-// var passport      = require('passport');
-// var bcrypt        = require('bcrypt');
-// var LocalStrategy = require('passport-local').Strategy;
+var passport      = require('passport');
+var bcrypt        = require('bcrypt');
+var LocalStrategy = require('passport-local').Strategy;
 
-// require('../passport/passport')(passport);
+require('../passport/passport')(passport);
 var conn   = require('../db_connection').defaultConnection;
 var User   = conn.model('User');
 var validations = require('../helpers/validations');
 
 var auth = exports;
 
-// auth.defaultRouteRedirect = function(req, res){
-//   var user = {
-//     firstname: req.user.firstname,
-//     lastname: req.user.lastname,
-//     email: req.user.email
-//   };
-//
-//   if(!req.isAuthenticated){
-//     req.flash('error', 'Please register / log in');
-//     return res.redirect('register');
-//   } else {
-//     return res.redirect('profile');
-//   }
-// };
 
 // Render register page
 auth.getRegisterPage = function(req, res){
@@ -39,9 +25,10 @@ auth.getRegisterPage = function(req, res){
  * 4. Create a customer on Stripe with Free Plan
  **/
 auth.register = function(req, res){
-  var name      = req.body.name;
-  var email     = req.body.email;
-  var password  = req.body.password;
+  var name      = req.body.registerName;
+  var email     = req.body.registerEmail;
+  var age       = req.body.registerAge;
+  var password  = req.body.registerPassword;
 
   if(name.trim().length === 0){
     req.flash('error','Name cannot be empty');
@@ -50,6 +37,11 @@ auth.register = function(req, res){
 
   if(!validations.emailValidation(email)){
     req.flash('error','Email cannot be empty & should be valid format');
+    return res.redirect('register');
+  }
+
+  if((age > 200) || (age < 0)){
+    req.flash('error','Age should be between 0 - 200 yrs old');
     return res.redirect('register');
   }
 
@@ -78,17 +70,18 @@ auth.register = function(req, res){
             var newUser = new User({
               name: name,
               email: email,
-              password: hashedPassword,
+              age: age,
+              password: hashedPassword
             });
 
             newUser.save(function(err, user){
               req.login(user, function(err) {
                 if (err) {
                   req.flash('error', 'Something went wrong. Try again.');
-                  return res.redirect('register');
+                  return res.redirect('/register');
                 }
-                req.flash('info', 'Welcome to Seleny!');
-                return res.redirect('profile');
+                req.flash('info', 'Welcome to Meetup Event Planner!');
+                return res.redirect('/');
               });
             });
 
@@ -124,7 +117,7 @@ auth.login = function(req, res){
     return res.redirect('login');
   }
 
-  if(password.trim().length < 6){
+  if(password.trim().length < 8){
     req.flash('error','Please enter the correct password');
     return res.redirect('login');
   }

@@ -6,7 +6,7 @@ module.exports.eventSchema = new mongoose.Schema({
     required: true
   },
 
-  category: {
+  type: {
     type: String,
     required: true
   },
@@ -34,10 +34,6 @@ module.exports.eventSchema = new mongoose.Schema({
 	location: {
 		type: String,
 		required: true
-	},
-
-	guestList: {
-		type: String
 	},
 
 	message: {

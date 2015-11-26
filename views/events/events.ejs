@@ -1,121 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Yuichi Hagio">
-    <meta name="description" content="Meetup Event Planner (Front-End)">
-    <link rel="stylesheet" href="/stylesheets/main.css" media="screen">
-    <title>Meetup Event Planner</title>
-  </head>
+
+  <% include ../includes/head %>
+
   <body ontouchstart>
-    <nav class="navigationBar">
-      <ul>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/" class="activeLink">Events</a></li>
-        <li><a href="/create_event">Create Event</a></li>
-      </ul>
-    </nav>
+
+    <% include ../includes/headerNavigation %>
 
     <div class="mainContainer">
 
       <section class="eventList">
         <h1>Event List</h1>
-        <div class="eventGroup">
-          <h4>Front-End Dev Workshop</h4>
+        
+        <% events.forEach(function(event) { %>
+          <div class="eventGroup">
+            <h4><%= event.name %></h4>
 
-          <p class="eventLabel">Type:</p>
-          <span class="badge">Educational</span>
+            <p class="eventLabel">Type:</p>
+            <span class="badge"><%= event.type %></span>
 
-          <p>
-            <span class="eventLabel">Start Date/Time:</span><br />Nov 30, 2015 - 17:00
-          </p>
-
-          <p>
-            <span class="eventLabel">End Date/Time:</span><br /> Nov 30, 2015 - 21:00
-          </p>
-
-          <p>
-            <span class="eventLabel">Location:</span><br /> 123 ABC Street Montreal, QC
-          </p>
-          <p>
-            <span class="eventLabel">Host:</span><br /> Alice Smith
-          </p>
-
-          <div class="">
             <p>
-              <span class="eventLabel">Messages:</span><br />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <span class="eventLabel">Start Date/Time:</span><br />
+              <%= event.startDate %>
             </p>
-          </div>
-        </div>
 
-        <div class="eventGroup">
-          <h4>Alice's Birthday Party</h4>
-
-          <p class="eventLabel">Type:</p>
-          <span class="badge">Birthday</span>
-
-          <p>
-            <span class="eventLabel">Start Date/Time:</span><br />Dec 10, 2015 - 21:00
-          </p>
-
-          <p>
-            <span class="eventLabel">End Date/Time:</span><br /> Dec 11, 2015 - 05:00
-          </p>
-
-          <p>
-            <span class="eventLabel">Location:</span><br /> 456 DEF Street Phoenix, AZ
-          </p>
-          <p>
-            <span class="eventLabel">Host:</span><br /> Kevin Lee
-          </p>
-
-          <div class="">
             <p>
-              <span class="eventLabel">Messages:</span><br />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <%= event.createdBy %>
             </p>
-          </div>
-        </div>
 
-        <div class="eventGroup">
-          <h4>New Year's Eve Party</h4>
-
-          <p class="eventLabel">Type:</p>
-          <span class="badge">Social</span>
-
-          <p>
-            <span class="eventLabel">Start Date/Time:</span><br />Dec 31, 2015 - 21:00
-          </p>
-
-          <p>
-            <span class="eventLabel">End Date/Time:</span><br /> Jan 01, 2016 - 05:00
-          </p>
-
-          <p>
-            <span class="eventLabel">Location:</span><br /> 789 HIJ Avenue Tokyo, Japan
-          </p>
-          <p>
-            <span class="eventLabel">Host:</span><br /> Lena Lopez
-          </p>
-
-          <div class="">
             <p>
-              <span class="eventLabel">Messages:</span><br />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <span class="eventLabel">End Date/Time:</span><br />
+              <%= event.endDate %>
             </p>
+
+            <p>
+              <span class="eventLabel">Location:</span><br />
+              <%= event.location %>
+            </p>
+            <p>
+              <span class="eventLabel">Host:</span><br />
+              <%= event.host %>
+            </p>
+            
+            <% if (event.message) { %>
+            <div class="">
+              <p>
+                <span class="eventLabel">Messages:</span><br />
+                <%= event.message %>
+              </p>
+            </div>
+            <% } %>
           </div>
-        </div>
+        <% }); %>
+
       </section>
 
     </div>
 
-    <footer>
-      <p class="footerNote">
-        Built with <span><img class="heartIcon" src="images/iconmonstr-favorite-icon-48.png" alt="heart icon"></span>by Yuichi Hagio
-      </p>
-    </footer>
+    <% include ../includes/footer %>
   </body>
 </html>

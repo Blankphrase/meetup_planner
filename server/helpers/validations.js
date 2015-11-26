@@ -1,3 +1,5 @@
+// Authentication validation helpers
+
 module.exports.emailValidation = function(email){
   var re = /\S+@\S+\.\S+/;
   var eamil = email.trim();
@@ -7,3 +9,8 @@ module.exports.emailValidation = function(email){
     return true;
   }
 };
+
+// Event Creation Validation
+module.exports.eventValidation = function(eventObject){
+
+}

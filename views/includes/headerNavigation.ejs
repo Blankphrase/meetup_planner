@@ -1,0 +1,12 @@
+<nav class="navigationBar">
+  <ul>
+    <% if (locals.user){ %>
+      <li><a href="/">Events</a></li>
+      <li><a href="/create_event">Create Event</a></li>
+      <li><a href="/logout">Logout</a></li>
+    <% } else { %>
+      <li><a href="/register">Register</a></li>
+      <li><a href="/login">Login</a></li>
+    <% } %>
+  </ul>
+</nav>

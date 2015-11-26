@@ -1,27 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Yuichi Hagio">
-    <meta name="description" content="Meetup Event Planner (Front-End)">
-    <link rel="stylesheet" href="/stylesheets/main.css" media="screen">
-    <title>Meetup Event Planner</title>
-  </head>
+  <% include ../includes/head %>
+  
   <body ontouchstart>
-    <nav class="navigationBar">
-      <ul>
-        <li><a href="/register" class="activeLink">Register</a></li>
-        <li><a href="/">Events</a></li>
-        <li><a href="/create_event">Create Event</a></li>
-      </ul>
-    </nav>
+
+    <% include ../includes/headerNavigation %>
 
     <div class="mainContainer">
 
       <section class="registration">
-        <form id="registerForm" class="registrationForm" name="registrationForm" action="/events.html" method="get" />
+        <form id="registerForm" class="registrationForm" name="registrationForm" action="/register" method="POST" />
           <h1 class="headerTitle">User Registration</h1>
           <p>* Required</p>
 
@@ -31,7 +19,7 @@
             onkeyup="checkName()"
             id="registerName"
             type="text"
-            name="name"
+            name="registerName"
             placeholder="Your Name"
             autocomplete="name"
             required
@@ -79,11 +67,8 @@
 
     </div>
 
-    <footer>
-      <p class="footerNote">
-        Built with <span><img class="heartIcon" src="images/iconmonstr-favorite-icon-48.png" alt="heart icon"></span>by Yuichi Hagio
-      </p>
-    </footer>
+    <% include ../includes/footer %>
+
     <script src="/javascripts/helpers.js"></script>
     <script src="/javascripts/registration.js"></script>
   </body>

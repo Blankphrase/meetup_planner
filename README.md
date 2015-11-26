@@ -16,5 +16,11 @@ Web application that lets anyone create events easily
 
 ### NPM Packages
 ```
-npm install --save express mongoose bcrypt body-parser connect-mongo cookie-parser express-session passport passport-local jade connect-flash moment
+npm install --save express mongoose bcrypt body-parser connect-mongo cookie-parser express-session passport passport-local ejs connect-flash moment
 ```
+
+### Todo
+- validation on server side(auth, event creation)
+- Profile page
+- email notification on forgot password
+- edit event page / delete

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include ../includes/head %>
+
+  <body ontouchstart>
+
+    <% include ../includes/headerNavigation %>
+
+    <div class="mainContainer">
+
+      <section class="registration">
+        <form id="loginForm" class="loginForm" name="loginForm" action="/login" method="POST" />
+          <h1 class="headerTitle">User Login</h1>
+
+          <label for="loginEmail">Email*</label><br />
+          <span id="errEmailLogin" class="error"></span>
+          <input
+            onkeyup="checkEmail()"
+            id="loginEmail"
+            type="email"
+            name="loginEmail"
+            placeholder="Your Email"
+            autocomplete="email"
+            required />
+
+          <label for="loginPassword">Password*</label><br />
+          <span id="errPassLogin" class="error"></span>
+          <input
+            onkeyup="checkPassword()"
+            id="loginPassword"
+            type="password"
+            name="loginPassword"
+            placeholder="Your Password"
+            required />
+
+          <button id="loginButton" type="submit" class="canSubmit">Login</button>
+        </form>
+      </section>
+
+    </div>
+
+    <% include ../includes/footer %>
+
+    <script src="/javascripts/helpers.js"></script>
+    <script src="/javascripts/login.js"></script>
+  </body>
+</html>

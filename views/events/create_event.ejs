@@ -14,19 +14,14 @@
     <title>Meetup Event Planner</title>
   </head>
   <body ontouchstart>
-    <nav class="navigationBar">
-      <ul>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/">Events</a></li>
-        <li><a href="/create_event" class="activeLink">Create Event</a></li>
-      </ul>
-    </nav>
+
+    <% include ../includes/headerNavigation %>
 
     <div class="mainContainer">
 
       <!-- Event creation -->
       <section class="eventCreation">
-        <form id="eventCreationForm" class="eventForm" action="/events" method="get">
+        <form id="eventCreationForm" class="eventForm" action="/create_event" method="POST">
           <h1 class="headerTitle">Create Event</h1>
           <p>* Required</p>
 
@@ -113,11 +108,7 @@
 
     </div>
 
-    <footer>
-      <p class="footerNote">
-        Built with <span><img class="heartIcon" src="images/iconmonstr-favorite-icon-48.png" alt="heart icon"></span>by Yuichi Hagio
-      </p>
-    </footer>
+    <% include ../includes/footer %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.3.4/js/bootstrap-datetimepicker.min.js"></script>
