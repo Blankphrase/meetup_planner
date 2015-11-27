@@ -24,3 +24,6 @@ npm install --save express mongoose bcrypt body-parser connect-mongo cookie-pars
 - Profile page
 - email notification on forgot password
 - edit event page / delete
+
+### Issue
+- Need to find a way to populate 'datetime-local' value in input tag in event-edit page
