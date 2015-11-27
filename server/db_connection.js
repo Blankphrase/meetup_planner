@@ -4,7 +4,8 @@ var userModel = require('./models/user');
 var eventModel = require('./models/event');
 
 function makeDefaultConnection() {
-   var conn = mongoose.createConnection(config.dbHostName, config.port);
+   // var conn = mongoose.createConnection(config.dbHostName, config.port);
+   var conn = mongoose.createConnection(config.MONGO_URI);
    conn.model('User', userModel.userSchema);
 	 conn.model('Event', eventModel.eventSchema);
    return conn;
