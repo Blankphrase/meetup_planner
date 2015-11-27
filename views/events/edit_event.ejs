@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Yuichi Hagio">
+    <meta name="description" content="Meetup Event Planner (Front-End)">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.3.4/css/bootstrap-datetimepicker.min.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/main.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/overwrite.css" media="screen">
+    <title>Meetup Event Planner</title>
+  </head>
+  <body ontouchstart>
+
+    <% include ../includes/headerNavigation %>
+
+    <div class="mainContainer">
+
+      <section class="eventCreation">
+        <form id="eventCreationForm" class="eventForm" action="/events/<%= event._id %>/edit_event" method="POST">
+          <h1 class="headerTitle">Edit Event</h1>
+          <p>* Required</p>
+
+          <label for="eventName">Event Name* </label><br />
+          <span id="errEventName" class="error"></span>
+          <input
+            onkeyup="checkEventName()"
+            id="eventName"
+            type="text"
+            name="eventName"
+            placeholder="Event Name"
+            value="<%= event.name %>"
+            required
+            autofocus />
+
+          <label for="eventType">Event Type*</label><br />
+          <span id="errEventType" class="error"></span>
+          <select onchange="checkEventType()" id="eventType" name="eventType" required>
+            <option selected disabled value="">Choose one</option>
+            <option value="Birthday" <%= (event.type == 'Birthday') ? 'selected' : '' %>>Birthday</option>
+            <option value="Conference" <%= (event.type == 'Conference') ? 'selected' : '' %>>Conference</option>
+            <option value="Ceremony" <%= (event.type == 'Ceremony') ? 'selected' : '' %>>Ceremony</option>
+            <option value="Educational" <%= (event.type == 'Educational') ? 'selected' : '' %> >Educational</option>
+            <option value="Leisure" <%= (event.type == 'Leisure') ? 'selected' : '' %>>Leisure</option>
+            <option value="Networking" <%= (event.type == 'Networking') ? 'selected' : '' %>>Networking</option>
+            <option value="Party" <%= (event.type == 'Party') ? 'selected' : '' %>>Party</option>
+            <option value="Social" <%= (event.type == 'Social') ? 'selected' : '' %>>Social</option>
+            <option value="Sports" <%= (event.type == 'Sports') ? 'selected' : '' %>>Sports</option>
+            <option value="Others" <%= (event.type == 'Others') ? 'selected' : '' %>>Others</option>
+          </select>
+
+          <label for="eventHost">Event Host*</label><br />
+          <span id="errEventHost" class="error"></span>
+          <input
+            onkeyup="checkEventHost()"
+            id="eventHost"
+            type="text"
+            name="eventHost"
+            placeholder="Event Host Name"
+            autocomplete="name"
+            value="<%= event.host %>"
+            required />
+
+          <label for="startDate">Start Date/Time*</label><br />
+          <span id="errEventStartDate" class="error"></span>
+          <input
+            onkeyup="checkEventStartDate()"
+            id="startDate"
+            type="datetime-local"
+            name="startDate"
+            value="<%= event.startDate %>"
+            required />
+
+          <label for="endDate">End Date/Time*</label><br />
+          <span id="errEventEndDate" class="error"></span>
+          <input
+            onkeyup="checkEventEndDate()"
+            id="endDate"
+            type="datetime-local"
+            name="endDate"
+            value="<%= event.endDate %>"
+            required />
+
+          <label for="location">Event Location*</label><br />
+          <span id="errEventLocation" class="error"></span>
+          <input
+            onkeyup="checkEventLocation()"
+            id="location"
+            type="text"
+            name="location"
+            placeholder="Event Location/Address"
+            autocomplete="street-address"
+            value="<%= event.location %>"
+            required />
+
+          <label for="message">(Optional) Message</label><br />
+          <span id="errMessage" class="error"></span>
+          <textarea
+            onkeyup="checkMessage()"
+            id="message"
+            rows="10"
+            name="message"
+            placeholder="(Optional) message"><%= event.message %></textarea>
+
+
+          <button id="createButton" type="submit" class="canSubmit">Update</button>
+        </form>
+      </section>
+
+    </div>
+
+    <% include ../includes/footer %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.3.4/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/javascripts/helpers.js"></script>
+    <script src="/javascripts/eventCreation.js"></script>
+  </body>
+</html>

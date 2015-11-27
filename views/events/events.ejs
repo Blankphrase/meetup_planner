@@ -14,7 +14,7 @@
         
         <% events.forEach(function(event) { %>
           <div class="eventGroup">
-            <h4><%= event.name %></h4>
+            <a href="/events/<%= event._id %>"><h3><%= event.name %></h3></a>
 
             <p class="eventLabel">Type:</p>
             <span class="badge"><%= event.type %></span>
@@ -22,10 +22,6 @@
             <p>
               <span class="eventLabel">Start Date/Time:</span><br />
               <%= event.startDate %>
-            </p>
-
-            <p>
-              <%= event.createdBy %>
             </p>
 
             <p>

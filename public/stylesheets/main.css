@@ -242,3 +242,11 @@ footer {
   width: 18px;
   margin:0 5px -2px 0;
 }
+
+
+/* Edit Button */
+.editButton {
+  height: 35px;
+  width: 70px;
+  font-size: 1em;
+}

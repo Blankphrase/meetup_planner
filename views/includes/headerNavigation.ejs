@@ -3,6 +3,7 @@
     <% if (locals.user){ %>
       <li><a href="/">Events</a></li>
       <li><a href="/create_event">Create Event</a></li>
+      <li><a href="/profile"><%= user.name %></a></li>
       <li><a href="/logout">Logout</a></li>
     <% } else { %>
       <li><a href="/register">Register</a></li>
