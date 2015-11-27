@@ -4,6 +4,6 @@ var app = express();
 require('./express-config').expressSetup(app);
 require('./server/routes')(app);
 
-app.listen(app.get('port'), function() {
-  console.log('listening on http://localhost:' + app.get('port'));
+app.listen(process.env.PORT || 3000, function() {
+  console.log('Connected!');
 });
