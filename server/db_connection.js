@@ -8,6 +8,7 @@ function makeDefaultConnection() {
    var conn = mongoose.createConnection(config.MONGO_URI);
    conn.model('User', userModel.userSchema);
 	 conn.model('Event', eventModel.eventSchema);
+   console.log('DB CONNECTED!');
    return conn;
 }
 
