@@ -4,8 +4,9 @@ var userModel = require('./models/user');
 var eventModel = require('./models/event');
 
 function makeDefaultConnection() {
-  console.log('===== Connecting to DB ... =====');
-  var conn = mongoose.createConnection(process.env.MONGOLAB_URI || config.dbHostName, function(err){
+  var uri = process.env.MONGOLAB_URI || config.dbHostName;
+  console.log('Connecting to DB : ', uri);
+  var conn = mongoose.createConnection(uri, function(err){
     if(err){
       console.log('CONNECTION ERROR::::', err);
     }
