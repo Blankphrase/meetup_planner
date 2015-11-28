@@ -7,7 +7,6 @@ var path = require('path');
 var session = require('express-session');
 var flash = require('connect-flash');
 var passport = require('passport');
-// var config = require('./server/config.js');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
@@ -34,20 +33,5 @@ module.exports.expressSetup = function(app){
 }
 
 
-// var dbname = 'meetupplanner';
-// module.exports.MONGO_URI  = 'mongodb://heroku_k582kczq:KenzaRiani4631@ds057934.mongolab.com:57934/heroku_k582kczq'
 module.exports.dbHostName = '127.0.0.1/meetupplanner';
 // module.exports.port       = process.env.PORT || 3000;
-
-// var session = require('express-session');
-// var MongoStore = require('connect-mongo')(session);
-
-// module.exports.sessionMiddleware = session({
-//   secret: 'secret_key',
-//   cookie: {maxAge: 1209600000},
-//   store: new MongoStore({
-//     'db': 'meetupplanner'
-//   }),
-//   resave: true,
-//   saveUninitialized: true
-// });
