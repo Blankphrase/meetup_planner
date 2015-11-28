@@ -6,7 +6,6 @@ function makeDefaultConnection() {
   var uri = process.env.MONGOLAB_URI || '127.0.0.1/meetupplanner';
   console.log('Connecting to DB : ', uri);
   var conn = mongoose.createConnection(uri);
-  console.log('CONN: ', conn);
   conn.model('User', userModel.userSchema);
   conn.model('Event', eventModel.eventSchema);
   return conn;
