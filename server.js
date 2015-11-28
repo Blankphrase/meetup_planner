@@ -6,7 +6,7 @@ require('./express-config').expressSetup(app);
 
 try {
   var uri = process.env.MONGOLAB_URI || '127.0.0.1/meetupplanner'; 
-  console.log('Connecting to DB : ', uri);
+  console.log('CONNECTING 2 ====> ', uri);
 
   mongoose.connect(uri, {}, function(err, db){
     if(err) {
