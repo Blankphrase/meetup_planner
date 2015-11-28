@@ -4,12 +4,16 @@ var userModel = require('./models/user');
 var eventModel = require('./models/event');
 
 function makeDefaultConnection() {
-   // var conn = mongoose.createConnection(config.dbHostName, config.port);
-   var conn = mongoose.createConnection(process.env.MONGO_URI || config.dbHostName);
-   conn.model('User', userModel.userSchema);
-	 conn.model('Event', eventModel.eventSchema);
-   console.log('DB CONNECTED!');
-   return conn;
+  // var conn = mongoose.createConnection(config.dbHostName, config.port);
+  var conn = mongoose.connect(process.env.MONGO_URI || config.dbHostName, function(err){
+    if(err){
+      console.log('CONNECTION ERROR::::', err);
+    }
+    console.log('CONNECTED to DB!');
+  });
+  conn.model('User', userModel.userSchema);
+  conn.model('Event', eventModel.eventSchema);
+  return conn;
 }
 
 module.exports.defaultConnection = makeDefaultConnection();
