@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Meetup Event Planner",
   "engines": {
-    "node": "5.0.0"
+    "node": "5.0.0",
+    "npm": "3.3.6"
   },
   "main": "server.js",
   "scripts": {
