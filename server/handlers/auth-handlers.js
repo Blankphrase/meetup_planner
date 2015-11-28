@@ -3,8 +3,9 @@ var bcrypt        = require('bcrypt');
 var LocalStrategy = require('passport-local').Strategy;
 
 require('../passport/passport')(passport);
-var conn   = require('../db_connection').defaultConnection;
-var User   = conn.model('User');
+// var conn   = require('../db_connection').defaultConnection;
+// var User   = conn.model('User');
+var User = require('../models/user');
 var validations = require('../helpers/validations');
 
 var auth = exports;

@@ -1,6 +1,7 @@
 var mongoose  = require('mongoose');
 
-module.exports.userSchema = new mongoose.Schema({
+// module.exports.userSchema = new mongoose.Schema({
+var userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -22,3 +23,8 @@ module.exports.userSchema = new mongoose.Schema({
     required: true
   }
 });
+
+
+var User = mongoose.model('User', userSchema);
+
+module.exports = User;

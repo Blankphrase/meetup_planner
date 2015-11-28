@@ -2,9 +2,12 @@ var ensureAuth = require('./passport/ensure-authenticated');
 var authHandler  = require('./handlers/auth-handlers');
 var eventHandler = require('./handlers/event-handlers');
 // var email      = require('./handlers/email');
-var conn       = require('./db_connection').defaultConnection;
-var User       = conn.model('User');
-var Event      = conn.model('Event');
+// var conn       = require('./db_connection').defaultConnection;
+// var User       = conn.model('User');
+// var Event      = conn.model('Event');
+
+var User = require('./models/user');
+var Event = require('./models/event');
 var bcrypt     = require('bcrypt');
 //
 // // Check if user is already logged-in

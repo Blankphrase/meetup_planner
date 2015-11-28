@@ -1,5 +1,7 @@
-var conn   = require('../db_connection').defaultConnection;
-var Event  = conn.model('Event');
+// var conn   = require('../db_connection').defaultConnection;
+// var Event  = conn.model('Event');
+var Event = require('../models/event');
+
 var validations = require('../helpers/validations');
 var moment = require('moment');
 
