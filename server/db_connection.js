@@ -5,8 +5,7 @@ var eventModel = require('./models/event');
 
 function makeDefaultConnection() {
   console.log('===== Connecting to DB ... =====');
-  var conn = mongoose.createConnection(process.env.MONGOLAB_URI, function(err){ 
-    //Local: 'config.dbHostName' instead of 'process.env.MONGOLAB_URI'
+  var conn = mongoose.createConnection(process.env.MONGOLAB_URI || config.dbHostName, function(err){
     if(err){
       console.log('CONNECTION ERROR::::', err);
     }
