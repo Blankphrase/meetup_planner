@@ -14,7 +14,7 @@ try {
     } else {
       console.log('Successfully Connected!');
     }
-  }
+  });
 } catch(e) {
    console.log("Caught exception trying to connect to database");
    console.log(e);
