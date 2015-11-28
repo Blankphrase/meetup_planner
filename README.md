@@ -27,3 +27,5 @@ npm install --save express mongoose bcrypt body-parser connect-mongo cookie-pars
 
 ### Issue
 - Need to find a way to populate 'datetime-local' value in input tag in event-edit page
+
+- [Mongo connection error - gist](https://gist.github.com/yhagio/e0604502d17d840a55a6)
