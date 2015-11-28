@@ -33,5 +33,5 @@ module.exports.expressSetup = function(app){
 }
 
 
-module.exports.dbHostName = '127.0.0.1/meetupplanner';
+// module.exports.dbHostName = '127.0.0.1/meetupplanner';
 // module.exports.port       = process.env.PORT || 3000;
