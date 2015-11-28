@@ -5,7 +5,7 @@ var eventModel = require('./models/event');
 
 function makeDefaultConnection() {
   // var conn = mongoose.createConnection(config.dbHostName, config.port);
-  var conn = mongoose.connect(process.env.MONGO_URI || config.dbHostName, function(err){
+  var conn = mongoose.connect(process.env.MONGOLAB_URI || config.dbHostName, function(err){
     if(err){
       console.log('CONNECTION ERROR::::', err);
     }
