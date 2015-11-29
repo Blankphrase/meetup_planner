@@ -25,7 +25,7 @@ module.exports.expressSetup = function(app){
 	  //   'db': 'meetupplanner'
 	  // }),
     store: new MongoStore({
-      'db': 'heroku_tb6frdh6'
+      url: process.env.MONGOLAB_URI
     }),
 	  resave: true,
 	  saveUninitialized: true
