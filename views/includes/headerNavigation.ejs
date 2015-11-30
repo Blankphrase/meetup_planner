@@ -1,10 +1,27 @@
 <nav class="navigationBar">
   <ul>
     <% if (locals.user){ %>
-      <li><a href="/">Events</a></li>
-      <li><a href="/create_event">Create Event</a></li>
-      <li><a href="/profile"><%= user.name %></a></li>
-      <li><a href="/logout">Logout</a></li>
+      <li>
+        <a href="/">Events</a>
+      </li>
+      <li>
+        <a href="/create_event">
+          <img class="heartIcon" src="/images/iconmonstr-edit-6-icon-48.png" alt="Create Event">
+          <span class="navTitles">Create Event</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile">
+          <img class="heartIcon" src="/images/iconmonstr-user-icon-48.png" alt="Profile">
+          <span class="navTitles">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="/logout">
+          <img class="heartIcon" src="/images/iconmonstr-logout-icon-48.png" alt="Logout">
+          <span class="navTitles">Logout</span>
+        </a>
+      </li>
     <% } else { %>
       <li><a href="/register">Register</a></li>
       <li><a href="/login">Login</a></li>
