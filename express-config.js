@@ -19,17 +19,17 @@ module.exports.expressSetup = function(app){
   app.use(cookieParser());
   app.use(express.static(__dirname + '/public'));
   app.use(session({
-	  secret: 'secret_key',
-	  cookie: {maxAge: 1209600000},
-	  // store: new MongoStore({
-	  //   'db': 'meetupplanner'
-	  // }),
+    secret: 'secret_key',
+    cookie: {maxAge: 1209600000},
+    // store: new MongoStore({
+    //   'db': 'meetupplanner'
+    // }),
     store: new MongoStore({
       url: process.env.MONGOLAB_URI
     }),
-	  resave: true,
-	  saveUninitialized: true
-	}));
+    resave: true,
+    saveUninitialized: true
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(flash());

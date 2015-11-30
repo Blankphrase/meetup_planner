@@ -1,15 +1,8 @@
 var ensureAuth = require('./passport/ensure-authenticated');
 var authHandler  = require('./handlers/auth-handlers');
 var eventHandler = require('./handlers/event-handlers');
-// var email      = require('./handlers/email');
-// var conn       = require('./db_connection').defaultConnection;
-// var User       = conn.model('User');
-// var Event      = conn.model('Event');
+var profileHandler = require('./handlers/profile-handlers');
 
-var User = require('./models/user');
-var Event = require('./models/event');
-var bcrypt     = require('bcrypt');
-//
 // // Check if user is already logged-in
 function checkIfLoggedIn(req, res, next){
   if (!req.isAuthenticated()) {
@@ -41,10 +34,8 @@ module.exports = function(app){
 	app.get('/events/:eventid/edit_event', ensureAuth, eventHandler.getEditEvent);
 	app.post('/events/:eventid/edit_event', ensureAuth, eventHandler.postEditEvent);
 
-
-  // app.get('/profile', ensureAuth, profile.getProfile);
-  // app.post('/update-email', ensureAuth, profile.updateEmail);
-  // app.post('/update-password', ensureAuth, profile.updatePassword);
-
-
+  app.get('/profile', ensureAuth, profileHandler.getProfile);
+  app.get('/profile/edit_profile', ensureAuth, profileHandler.getEditProfile);
+  app.post('/profile/edit_profile', ensureAuth, profileHandler.updateProfile);
+  app.post('/profile/update_password', ensureAuth, profileHandler.updatePassword);
 };

@@ -14,7 +14,28 @@ events.getEvents = function(req, res){
       req.flash('error', 'Something went wrong. Refresh.');
       return res.redirect('/create_event');
     }
-    return res.render('events/events', {user: user, events: events});
+
+    var _events = [];
+    events.forEach(function(event){
+      var startDate = moment(event.startDate).format('MMMM DD YYYY, h:mm A');
+      var endDate = moment(event.endDate).format('MMMM DD YYYY, h:mm A');
+      
+      var _event = {
+        _id: event._id,
+        name: event.name,
+        type: event.type,
+        host: event.host,
+        createdBy: event.createdBy,
+        startDate: startDate,
+        endDate: endDate,
+        location: event.location,
+        message: event.message 
+      };
+
+      _events.push(_event);
+    });
+
+    return res.render('events/events', {user: user, events: _events});
   });
 };
 
@@ -84,7 +105,22 @@ events.getOneEvent = function(req, res){
       isAuthor = true;
     }
 
-    return res.render('events/event_page', {user: req.user, event: event, isAuthor: isAuthor});
+    var startDate = moment(event.startDate).format('MMMM DD YYYY, h:mm A');
+    var endDate = moment(event.endDate).format('MMMM DD YYYY, h:mm A');
+
+    var _event = {
+      _id: event._id,
+      name: event.name,
+      type: event.type,
+      host: event.host,
+      createdBy: event.createdBy,
+      startDate: startDate,
+      endDate: endDate,
+      location: event.location,
+      message: event.message 
+    };
+
+    return res.render('events/event_page', {user: req.user, event: _event, isAuthor: isAuthor});
   });
 };
 

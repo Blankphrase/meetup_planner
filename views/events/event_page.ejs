@@ -14,7 +14,13 @@
         
         <div class="eventGroup">
           <h3><%= event.name %>
-            <% if(isAuthor){ %><span><a href="/events/<%= event._id %>/edit_event"><button class="editButton">EDIT</button></a></span><% } %>
+            <% if(isAuthor){ %>
+              <span>
+                <a href="/events/<%= event._id %>/edit_event">
+                  <button class="editButton">EDIT</button>
+                </a>
+              </span>
+            <% } %>
           </h3>
 
           <p class="eventLabel">Type:</p>

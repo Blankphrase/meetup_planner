@@ -1,6 +1,8 @@
 // Authentication validation helpers
 
-module.exports.emailValidation = function(email){
+var helpers = exports;
+
+helpers.emailValidation = function(email){
   var re = /\S+@\S+\.\S+/;
   var eamil = email.trim();
   if(!re.test(email) || email.length === 0) {
@@ -11,6 +13,6 @@ module.exports.emailValidation = function(email){
 };
 
 // Event Creation Validation
-module.exports.eventValidation = function(eventObject){
+helpers.eventValidation = function(eventObject){
 
 }
