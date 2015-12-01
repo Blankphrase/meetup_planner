@@ -33,6 +33,7 @@ module.exports = function(app){
   app.get('/events/:eventid', ensureAuth, eventHandler.getOneEvent);
 	app.get('/events/:eventid/edit_event', ensureAuth, eventHandler.getEditEvent);
 	app.post('/events/:eventid/edit_event', ensureAuth, eventHandler.postEditEvent);
+  app.get('/events/:eventid/delete', ensureAuth, eventHandler.deleteEvent);
 
   app.get('/profile', ensureAuth, profileHandler.getProfile);
   app.get('/profile/edit_profile', ensureAuth, profileHandler.getEditProfile);

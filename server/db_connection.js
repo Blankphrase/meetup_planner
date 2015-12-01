@@ -3,8 +3,8 @@ var mongoose  = require('mongoose');
 // var eventModel = require('./models/event');
 
 function makeDefaultConnection() {
-  // var uri = process.env.MONGOLAB_URI;
-  var uri = '127.0.0.1/meetupplanner';
+  var uri = process.env.MONGOLAB_URI;
+  // var uri = '127.0.0.1/meetupplanner';
 
   // var conn = mongoose.createConnection(uri);
 

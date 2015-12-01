@@ -21,12 +21,12 @@ module.exports.expressSetup = function(app){
   app.use(session({
     secret: 'secret_key',
     cookie: {maxAge: 1209600000},
-    store: new MongoStore({
-      'db': 'meetupplanner'
-    }),
     // store: new MongoStore({
-    //   url: process.env.MONGOLAB_URI
+    //   'db': 'meetupplanner'
     // }),
+    store: new MongoStore({
+      url: process.env.MONGOLAB_URI
+    }),
     resave: true,
     saveUninitialized: true
   }));

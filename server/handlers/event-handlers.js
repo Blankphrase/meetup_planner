@@ -181,12 +181,50 @@ events.postEditEvent = function(req, res){
     message: message
   };
 
-  Event.findOneAndUpdate(query, update, function(err, event){
+  Event.findOne(query, function(err, event){
     if (err) {
       req.flash('error', 'Something went wrong. Try again.');
-      return res.redirect('/create_event');
+      return res.redirect('/events/eventId');
     }
-    req.flash('info', 'Successfully created!');
-    return res.redirect('/');
+
+    if(!event.createdBy.equals(req.user._id)){
+      req.flash('error', 'You are not author!');
+      return res.redirect('/events/eventId');
+    }
+
+    Event.findOneAndUpdate(query, update, function(err, event){
+      if (err) {
+        req.flash('error', 'Something went wrong. Try again.');
+        return res.redirect('/events/eventId');
+      }
+      req.flash('info', 'Successfully created!');
+      return res.redirect('/events/eventId');
+    });
   });
 };
+
+events.deleteEvent = function(req, res){
+  var eventId = req.params.eventid;
+  var query = {_id: eventId};
+
+  Event.findOne(query, function(err, event){
+    if (err) {
+      req.flash('error', 'Something went wrong. Try again.');
+      return res.redirect('/');
+    }
+
+    if(!event.createdBy.equals(req.user._id)){
+      req.flash('error', 'You are not author!');
+      return res.redirect('/');
+    }
+
+    Event.findOneAndRemove(query, function(err, event){
+      if (err) {
+        req.flash('error', 'Something went wrong. Try again.');
+        return res.redirect('/events/eventId');
+      }
+      req.flash('info', 'Successfully deleted!');
+      return res.redirect('/');
+    });
+  });
+}

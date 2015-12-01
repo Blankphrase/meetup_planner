@@ -108,6 +108,12 @@
 
           <button id="createButton" type="submit" class="canSubmit">Update</button>
         </form>
+
+        <hr>
+
+        <form class="eventForm" action="/events/<%= event._id %>/delete" method="GET">
+          <button>Delete</button>
+        </form>
       </section>
 
     </div>
