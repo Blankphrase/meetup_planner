@@ -13,9 +13,7 @@ var auth = exports;
 
 // Render register page
 auth.getRegisterPage = function(req, res){
-  res.render('authentications/register', {messages:
-    {error: req.flash('error')}
-  });
+  res.render('authentications/register', {messages: { error: req.flash('error'), info: req.flash('info')}});
 };
 
 /**
