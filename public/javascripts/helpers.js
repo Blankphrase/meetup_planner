@@ -22,20 +22,20 @@ function supportThisTypeAttribute(type) {
   return input.type == type;
 }
 
-function removeChildDOMS(){
-  console.log('checking');
-  if(document.getElementById("infoFlash").innerHTML.length > 0){
-    setTimeout(function(){
-      console.log('BOOM INFO!');
-      document.getElementById("infoFlash").innerHTML = "";
-    }, 5000)
-  }
+// function removeChildDOMS(){
+//   console.log('checking');
+//   if(document.getElementById("infoFlash").innerHTML.length > 0){
+//     setTimeout(function(){
+//       console.log('BOOM INFO!');
+//       document.getElementById("infoFlash").innerHTML = "";
+//     }, 5000)
+//   }
 
-  if(document.getElementById("errorFlash").innerHTML.length > 0){
-    setTimeout(function(){
-      console.log('BOOM ERROR!');
-      document.getElementById("errorFlash").innerHTML = "";
-    }, 5000)
-  }
-}
-removeChildDOMS();
+//   if(document.getElementById("errorFlash").innerHTML.length > 0){
+//     setTimeout(function(){
+//       console.log('BOOM ERROR!');
+//       document.getElementById("errorFlash").innerHTML = "";
+//     }, 5000)
+//   }
+// }
+// removeChildDOMS();

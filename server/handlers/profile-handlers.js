@@ -34,22 +34,17 @@ profile.updateProfile = function(req, res){
 
   if(name.trim().length === 0){
     req.flash('error','Name cannot be empty');
-    return res.redirect('register');
+    return res.redirect('/profile/edit_profile');
   }
 
   if(!validations.emailValidation(email)){
     req.flash('error','Email cannot be empty & should be valid format');
-    return res.redirect('register');
+    return res.redirect('/profile/edit_profile');
   }
 
   if((age > 200) || (age < 0)){
     req.flash('error','Age should be between 0 - 200 yrs old');
-    return res.redirect('register');
-  }
-
-  if(password.trim().length < 6){
-    req.flash('error','Password should be at least 6 characters');
-    return res.redirect('register');
+    return res.redirect('/profile/edit_profile');
   }
 
   var updateObj = {
@@ -62,9 +57,10 @@ profile.updateProfile = function(req, res){
     User.findOneAndUpdate({_id: req.user._id}, updateObj, function(err, user){
       if (err) {
         req.flash('error', 'Something went wrong. Try again.');
-        return res.redirect('/profile/profile_edit');
+        return res.redirect('/profile/edit_profile');
       }
 
+      req.flash('info', 'Successfully updated profile!');
       return res.redirect('/profile');
     });
   }
@@ -79,12 +75,12 @@ profile.updatePassword = function(req, res){
 
   if(!currentPass){
     req.flash('error', 'Please enter your current password');
-    return res.redirect('/profile/profile_edit');
+    return res.redirect('/profile/edit_profile');
   }
 
   if(newPass !== newPass2){
     req.flash('error', 'New password should match the confirm password');
-    return res.redirect('/profile/profile_edit');
+    return res.redirect('/profile/edit_profile');
   }
 
   var updateObj = {
