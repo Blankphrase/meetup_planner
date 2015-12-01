@@ -27,4 +27,15 @@
       <li><a href="/login">Login</a></li>
     <% } %>
   </ul>
+
 </nav>
+<div class="message-box">
+  <div class="messages">
+    <% if (locals.messages['info'][0]){ %>
+      <p id="infoFlash" class="info"><%= locals.messages['info'][0] %></p>
+    <% } %>
+    <% if (locals.messages['error'][0]){ %>
+      <p id="errorFlash" class="error"><%= locals.messages['error'][0] %></p>
+    <% } %>
+  </div>
+</div>

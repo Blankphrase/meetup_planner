@@ -159,7 +159,7 @@ select {
 
 /* Error */
 .error {
-  color: rgb(130, 6, 23);
+  color: #900000;
 }
 
 .tip {
@@ -257,6 +257,43 @@ footer {
   width: 70px;
   font-size: 1em;
 }
+
+
+.message-box {
+  margin: 60px 0 0 0;
+  padding: 0 0 0 20px;
+}
+
+.messages {
+  opacity: 0;
+  -webkit-animation: fadeInOut 5s;
+  animation: fadeInOut 5s;
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    16% {
+       opacity: 1;
+    }
+    84% {
+       opacity: 1;
+    }
+    100% {
+       opacity: 0;
+    }
+}
+
+.error {
+  color: #900000;
+  margin: 0;
+}
+
+.info {
+  color: blue;
+  margin: 0;
+}
+
 
 
 @media screen and (min-width: 500px) {

@@ -35,12 +35,12 @@ events.getEvents = function(req, res){
       _events.push(_event);
     });
 
-    return res.render('events/events', {user: user, events: _events});
+    return res.render('events/events', {user: user, events: _events, messages: { error: req.flash('error'), info: req.flash('info')}});
   });
 };
 
 events.getCreateEventForm = function(req, res){
-  res.render('events/create_event', {user: req.user})
+  res.render('events/create_event', {user: req.user, messages: { error: req.flash('error'), info: req.flash('info')}})
 };
 
 events.createEvent = function(req, res){
@@ -120,7 +120,7 @@ events.getOneEvent = function(req, res){
       message: event.message 
     };
 
-    return res.render('events/event_page', {user: req.user, event: _event, isAuthor: isAuthor});
+    return res.render('events/event_page', {user: req.user, event: _event, isAuthor: isAuthor, messages: { error: req.flash('error'), info: req.flash('info')}});
   });
 };
 
@@ -154,7 +154,7 @@ events.getEditEvent = function(req, res){
       message: event.message 
     };
 
-    return res.render('events/edit_event', {user: req.user, event: _event});
+    return res.render('events/edit_event', {user: req.user, event: _event, messages: { error: req.flash('error'), info: req.flash('info')}});
   });
 };
 

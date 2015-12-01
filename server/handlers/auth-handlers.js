@@ -95,6 +95,7 @@ auth.register = function(req, res){
 
 // Render login page
 auth.getLoginPage = function(req, res){
+
   res.render('authentications/login',
     {messages:
       {
@@ -141,7 +142,8 @@ auth.login = function(req, res){
         return res.redirect('/login');
       } else {
         req.flash('info', 'Logged in');
-        return res.redirect('/login');
+        // console.log('req session: ', req.session);
+        return res.redirect('/');
       }
     });
 

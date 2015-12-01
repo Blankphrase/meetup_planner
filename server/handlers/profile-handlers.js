@@ -12,7 +12,7 @@ profile.getProfile = function(req, res){
       return res.redirect('/');
     }
 
-    res.render('profile/profile', {user: user});
+    res.render('profile/profile', {user: user, messages: { error: req.flash('error'), info: req.flash('info')}});
   });
 };
 
@@ -23,7 +23,7 @@ profile.getEditProfile = function(req, res){
       return res.redirect('/');
     }
 
-    res.render('profile/profile_edit', {user: user});
+    res.render('profile/profile_edit', {user: user, messages: { error: req.flash('error'), info: req.flash('info')}});
   });
 };
 
