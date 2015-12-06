@@ -9,7 +9,7 @@
 
     <div class="mainContainer">
 
-      <section class="eventList">
+      <section id="eventsBlock" class="eventList">
         <h1>Event List</h1>
         
         <% events.forEach(function(event) { %>
@@ -51,8 +51,16 @@
 
       </section>
 
+      <div class="eventList">
+        <button id="loadMoreEvents" class="canSubmit">
+          Load More
+        </button>
+      </div>
+
     </div>
 
     <% include ../includes/footer %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/javascripts/events.js"></script>
   </body>
 </html>

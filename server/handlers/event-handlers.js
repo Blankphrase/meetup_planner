@@ -8,35 +8,75 @@ var moment = require('moment');
 var events = exports;
 
 events.getEvents = function(req, res){
+  var skipNum = req.query.skip || 0;
+  skipNum *= 2;
+
   var user = req.user || null;
-  Event.find({}, function(err, events){
-    if (err) {
-      req.flash('error', 'Something went wrong. Refresh.');
-      return res.redirect('/create_event');
-    }
 
-    var _events = [];
-    events.forEach(function(event){
-      var startDate = moment(event.startDate).format('MMMM DD YYYY, h:mm A');
-      var endDate = moment(event.endDate).format('MMMM DD YYYY, h:mm A');
-      
-      var _event = {
-        _id: event._id,
-        name: event.name,
-        type: event.type,
-        host: event.host,
-        createdBy: event.createdBy,
-        startDate: startDate,
-        endDate: endDate,
-        location: event.location,
-        message: event.message 
-      };
+  console.log('skipNum', skipNum)
+  if(skipNum == 0){
 
-      _events.push(_event);
+    Event.find({}).limit(2).exec(function(err, events){
+      if (err) {
+        req.flash('error', 'Something went wrong. Refresh.');
+        return res.redirect('/create_event');
+      }
+
+      var _events = [];
+      events.forEach(function(event){
+        var startDate = moment(event.startDate).format('MMMM DD YYYY, h:mm A');
+        var endDate = moment(event.endDate).format('MMMM DD YYYY, h:mm A');
+        
+        var _event = {
+          _id: event._id,
+          name: event.name,
+          type: event.type,
+          host: event.host,
+          createdBy: event.createdBy,
+          startDate: startDate,
+          endDate: endDate,
+          location: event.location,
+          message: event.message 
+        };
+
+        _events.push(_event);
+      });
+
+      return res.render('events/events', {user: user, events: _events, messages: { error: req.flash('error'), info: req.flash('info')}});
     });
 
-    return res.render('events/events', {user: user, events: _events, messages: { error: req.flash('error'), info: req.flash('info')}});
-  });
+  } else {
+    Event.find({}).skip(skipNum).limit(2).exec(function(err, events){
+      if (err) {
+        req.flash('error', 'Something went wrong. Refresh.');
+        return res.redirect('/create_event');
+      }
+
+      var _events = [];
+      events.forEach(function(event){
+        var startDate = moment(event.startDate).format('MMMM DD YYYY, h:mm A');
+        var endDate = moment(event.endDate).format('MMMM DD YYYY, h:mm A');
+        
+        var _event = {
+          _id: event._id,
+          name: event.name,
+          type: event.type,
+          host: event.host,
+          createdBy: event.createdBy,
+          startDate: startDate,
+          endDate: endDate,
+          location: event.location,
+          message: event.message 
+        };
+
+        _events.push(_event);
+      });
+      console.log('events', events);
+      return res.render('events/eventItem', {events: _events, messages: { error: req.flash('error'), info: req.flash('info')}});
+
+      // return res.send({user: user, events: _events, messages: { error: req.flash('error'), info: req.flash('info')}});
+    });
+  }
 };
 
 events.getCreateEventForm = function(req, res){
