@@ -1,5 +1,7 @@
 ### Meetup Event Planner Web App
 
+![Screenshot](scr.png)
+
 ### What is this?
 Web application that lets anyone create events easily
 
