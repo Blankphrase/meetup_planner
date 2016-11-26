@@ -1,5 +1,3 @@
-// Authentication validation helpers
-
 var helpers = exports;
 
 helpers.emailValidation = function(email){

@@ -73,7 +73,6 @@ function checkAge(e){
     document.getElementById('errAge').innerHTML = errorMsg;
     setAttribute('registerAge', 'class', 'errorBorder');
   }
-
 }
 
 // Check Password
@@ -150,14 +149,10 @@ function validationFallbackOnRegister(e){
   }
 }
 
-
 document.getElementById('registerForm').addEventListener('submit', (e)=> {
-  
   validationFallbackOnRegister(e);
-
   checkName(e);
   checkEmail(e);
   checkAge(e);
   checkPassword(e);
-
 }, false);

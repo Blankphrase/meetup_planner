@@ -21,12 +21,11 @@ module.exports.expressSetup = function(app){
   app.use(session({
     secret: 'secret_key',
     cookie: {maxAge: 1209600000},
-    // store: new MongoStore({
-    //   'db': 'meetupplanner'
-    // }),
-    store: new MongoStore({
-      url: process.env.MONGOLAB_URI
-    }),
+    // Development
+    // store: new MongoStore({ 'db': 'meetupplanner' }),
+    // Production
+    store: new MongoStore({ url: process.env.MONGOLAB_URI }),
+
     resave: true,
     saveUninitialized: true
   }));
@@ -34,7 +33,3 @@ module.exports.expressSetup = function(app){
   app.use(passport.session());
   app.use(flash());
 }
-
-
-// module.exports.dbHostName = '127.0.0.1/meetupplanner';
-// module.exports.port       = process.env.PORT || 3000;

@@ -1,6 +1,5 @@
 var mongoose  = require('mongoose');
 
-// module.exports.eventSchema = new mongoose.Schema({
 var eventSchema = new mongoose.Schema({
   name: {
     type: String,

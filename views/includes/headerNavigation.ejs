@@ -2,7 +2,7 @@
   <ul>
     <% if (locals.user){ %>
       <li>
-        <a href="/">Events</a>
+        <a href="/">Event Posts</a>
       </li>
       <li>
         <a href="/create_event">
@@ -23,6 +23,9 @@
         </a>
       </li>
     <% } else { %>
+      <li>
+        <a href="/">Event Posts</a>
+      </li>
       <li><a href="/register">Register</a></li>
       <li><a href="/login">Login</a></li>
     <% } %>

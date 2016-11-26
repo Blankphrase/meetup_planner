@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Yuichi Hagio">
     <meta name="description" content="Meetup Event Planner (Front-End)">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.3.4/css/bootstrap-datetimepicker.min.css" media="screen">
     <link rel="stylesheet" href="/stylesheets/main.css" media="screen">
@@ -14,16 +13,14 @@
     <title>Meetup Event Planner</title>
   </head>
   <body ontouchstart>
-
+    
     <% include ../includes/headerNavigation %>
 
     <div class="mainContainer">
-
       <section class="eventCreation">
         <form id="eventCreationForm" class="eventForm" action="/events/<%= event._id %>/edit_event" method="POST">
           <h1 class="headerTitle">Edit Event</h1>
           <p>* Required</p>
-
           <label for="eventName">Event Name* </label><br />
           <span id="errEventName" class="error"></span>
           <input
@@ -108,14 +105,11 @@
 
           <button id="createButton" type="submit" class="canSubmit">Update</button>
         </form>
-
         <hr>
-
         <form class="eventForm" action="/events/<%= event._id %>/delete" method="GET">
           <button>Delete</button>
         </form>
       </section>
-
     </div>
 
     <% include ../includes/footer %>

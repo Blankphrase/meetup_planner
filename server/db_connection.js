@@ -1,23 +1,14 @@
 var mongoose  = require('mongoose');
-// var userModel = require('./models/user');
-// var eventModel = require('./models/event');
 
 function makeDefaultConnection() {
+  // Production
   var uri = process.env.MONGOLAB_URI;
+
+  // Development
   // var uri = '127.0.0.1/meetupplanner';
 
-  // var conn = mongoose.createConnection(uri);
-
-  // conn.on('error', function(err){
-  //   console.log('Connection Error ::: ', err);
-  // });
-
-  // conn.model('User', userModel.userSchema);
-  // conn.model('Event', eventModel.eventSchema);
-  // return conn;
-
   mongoose.connect(uri, {}, function(err, db){
-    if(err){
+    if(err) {
       console.log('Connection Error ::: ', err);
     } else {
       console.log('Successfully Connected!');

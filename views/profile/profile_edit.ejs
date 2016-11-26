@@ -8,14 +8,10 @@
     <% include ../includes/headerNavigation %>
 
     <div class="mainContainer">
-
       <section class="eventList">
-        
         <h1>Update Profile</h1>
         <div class="eventGroup">
-
           <form id="editProfileForm" action="/profile/edit_profile" method="POST">
-
             <label for="profileName">Your Name* </label><br />
             <span id="errProfileName" class="error"></span>
             <input
@@ -54,22 +50,16 @@
             
             <button id="profileEditButton" type="submit" class="canSubmit">Edit</button>
           </form>
-
-
         </div>
-
       </section>
-
-            <section class="eventList">
-        
+      
+      <section class="eventList">
         <h1>Update Password</h1>
         <div class="eventGroup">
-          
           <p class="tip">
             - Must be 8 - 30 characters, include a symbol (! @ # $ % ^ & *), a number, a lower and uppercase.
           </p>
           <br />
-
           <form id="editPasswordForm" action="/profile/update_password" method="POST">
 
             <label for="currentPassword">Current Password*</label><br />
@@ -105,13 +95,9 @@
             
             <button id="updatePasswordButton" type="submit" class="canSubmit">Update Password</button>
           </form>
-
           <hr>
-
         </div>
-
       </section>
-
     </div>
 
     <% include ../includes/footer %>

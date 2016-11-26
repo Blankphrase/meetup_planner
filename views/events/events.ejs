@@ -13,8 +13,8 @@
         <h1>Event List</h1>
         
         <% events.forEach(function(event) { %>
-          <div class="eventGroup">
-            <a href="/events/<%= event._id %>"><h3><%= event.name %></h3></a>
+          <a href="/events/<%= event._id %>" class="eventGroup">
+            <h3><%= event.name %></h3>
 
             <p class="eventLabel">Type:</p>
             <span class="badge"><%= event.type %></span>
@@ -23,21 +23,6 @@
               <span class="eventLabel">Start Date/Time:</span><br />
               <%= event.startDate %>
             </p>
-
-            <p>
-              <span class="eventLabel">End Date/Time:</span><br />
-              <%= event.endDate %>
-            </p>
-
-            <p>
-              <span class="eventLabel">Location:</span><br />
-              <%= event.location %>
-            </p>
-            <p>
-              <span class="eventLabel">Host:</span><br />
-              <%= event.host %>
-            </p>
-            
             <% if (event.message) { %>
             <div class="">
               <p>
@@ -46,7 +31,7 @@
               </p>
             </div>
             <% } %>
-          </div>
+          </a>
         <% }); %>
 
       </section>

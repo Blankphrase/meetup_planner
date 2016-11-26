@@ -30,7 +30,5 @@ document.getElementById('loadMoreEvents').addEventListener('click', (e)=> {
     error: function(err){
       console.log('Error', err)
     }
-
-  })
-
+  });
 }, false);

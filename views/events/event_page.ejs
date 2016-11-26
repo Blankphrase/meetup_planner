@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <% include ../includes/head %>
-
   <body ontouchstart>
-
     <% include ../includes/headerNavigation %>
-
     <div class="mainContainer">
-
       <section class="eventList">
-        
-        
         <div class="eventGroup">
           <h3><%= event.name %>
             <% if(isAuthor){ %>
@@ -22,20 +15,16 @@
               </span>
             <% } %>
           </h3>
-
           <p class="eventLabel">Type:</p>
           <span class="badge"><%= event.type %></span>
-
           <p>
             <span class="eventLabel">Start Date/Time:</span><br />
             <%= event.startDate %>
           </p>
-
           <p>
             <span class="eventLabel">End Date/Time:</span><br />
             <%= event.endDate %>
           </p>
-
           <p>
             <span class="eventLabel">Location:</span><br />
             <%= event.location %>
@@ -44,7 +33,6 @@
             <span class="eventLabel">Host:</span><br />
             <%= event.host %>
           </p>
-          
           <% if (event.message) { %>
           <div class="">
             <p>
@@ -54,11 +42,8 @@
           </div>
           <% } %>
         </div>
-
       </section>
-
     </div>
-
     <% include ../includes/footer %>
   </body>
 </html>

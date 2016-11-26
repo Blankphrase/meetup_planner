@@ -13,21 +13,16 @@ function checkIfLoggedIn(req, res, next){
 }
 
 module.exports = function(app){
-
   app.get('/', eventHandler.getEvents);
 
-  /** Authentication routes
-   * Handled by Auth Handlers (handlers/auth-handlers)
-   **/
+  // Authentication related
   app.get('/register', checkIfLoggedIn, authHandler.getRegisterPage);
   app.post('/register', checkIfLoggedIn, authHandler.register);
   app.get('/login', checkIfLoggedIn, authHandler.getLoginPage);
   app.post('/login', checkIfLoggedIn, authHandler.login);
   app.get('/logout', ensureAuth, authHandler.logout);
 
-  // app.get('/forgot-password', checkIfLoggedIn, authHandler.getForgotPasswordPage);
-  // app.post('/send-new-password', checkIfLoggedIn, email.sendNewPassword);
-
+  // Events related
 	app.get('/create_event', ensureAuth, eventHandler.getCreateEventForm);
 	app.post('/create_event', ensureAuth, eventHandler.createEvent);
   app.get('/events/:eventid', ensureAuth, eventHandler.getOneEvent);
@@ -35,6 +30,7 @@ module.exports = function(app){
 	app.post('/events/:eventid/edit_event', ensureAuth, eventHandler.postEditEvent);
   app.get('/events/:eventid/delete', ensureAuth, eventHandler.deleteEvent);
 
+  // User related
   app.get('/profile', ensureAuth, profileHandler.getProfile);
   app.get('/profile/edit_profile', ensureAuth, profileHandler.getEditProfile);
   app.post('/profile/edit_profile', ensureAuth, profileHandler.updateProfile);

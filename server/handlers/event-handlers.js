@@ -1,9 +1,7 @@
-// var conn   = require('../db_connection').defaultConnection;
-// var Event  = conn.model('Event');
-var Event = require('../models/event');
-
-var validations = require('../helpers/validations');
 var moment = require('moment');
+
+var Event = require('../models/event');
+var validations = require('../helpers/validations');
 
 var events = exports;
 
@@ -13,9 +11,8 @@ events.getEvents = function(req, res){
 
   var user = req.user || null;
 
-  console.log('skipNum', skipNum)
+  // First time fetching events
   if(skipNum == 0){
-
     Event.find({}).limit(2).exec(function(err, events){
       if (err) {
         req.flash('error', 'Something went wrong. Refresh.');
@@ -42,9 +39,17 @@ events.getEvents = function(req, res){
         _events.push(_event);
       });
 
-      return res.render('events/events', {user: user, events: _events, messages: { error: req.flash('error'), info: req.flash('info')}});
+      return res.render('events/events', {
+        user: user,
+        events: _events,
+        messages: {
+          error: req.flash('error'),
+          info: req.flash('info')
+        }
+      });
     });
 
+  // When "Load More"
   } else {
     Event.find({}).skip(skipNum).limit(2).exec(function(err, events){
       if (err) {
@@ -71,10 +76,14 @@ events.getEvents = function(req, res){
 
         _events.push(_event);
       });
-      console.log('events', events);
-      return res.render('events/eventItem', {events: _events, messages: { error: req.flash('error'), info: req.flash('info')}});
 
-      // return res.send({user: user, events: _events, messages: { error: req.flash('error'), info: req.flash('info')}});
+      return res.render('events/eventItem', {
+        events: _events,
+        messages: {
+          error: req.flash('error'),
+          info: req.flash('info')
+        }
+      });
     });
   }
 };
@@ -84,7 +93,6 @@ events.getCreateEventForm = function(req, res){
 };
 
 events.createEvent = function(req, res){
-  // console.log(req.body);
   var name       = req.body.eventName;
   var type       = req.body.eventType;
   var host       = req.body.eventHost;
@@ -103,10 +111,6 @@ events.createEvent = function(req, res){
     location: location,
     message: message
   };
-
-  // if(!validations.eventValidation(newEventObj)){
-  //   return res.redirect('/create_event');
-  // }
 
   var newEvent = new Event({
     name: name,
@@ -160,12 +164,19 @@ events.getOneEvent = function(req, res){
       message: event.message 
     };
 
-    return res.render('events/event_page', {user: req.user, event: _event, isAuthor: isAuthor, messages: { error: req.flash('error'), info: req.flash('info')}});
+    return res.render('events/event_page', {
+      user: req.user,
+      event: _event,
+      isAuthor: isAuthor,
+      messages: { 
+        error: req.flash('error'),
+        info: req.flash('info')
+      }
+    });
   });
 };
 
 events.getEditEvent = function(req, res){
-
   var eventId = req.params.eventid;
 
   Event.findOne({_id: eventId}, function(err, event){
@@ -199,7 +210,6 @@ events.getEditEvent = function(req, res){
 };
 
 events.postEditEvent = function(req, res){
-
   var eventId = req.params.eventid;
 
   var name       = req.body.eventName;
@@ -210,7 +220,7 @@ events.postEditEvent = function(req, res){
   var location   = req.body.location;
   var message    = req.body.message || null;
 
-  var query = {_id: eventId};
+  var query = { _id: eventId };
   var update = {
     name: name,
     type: type,

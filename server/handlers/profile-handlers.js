@@ -1,4 +1,5 @@
 var bcrypt = require('bcrypt');
+
 var User = require('../models/user');
 var validations = require('../helpers/validations');
 
@@ -12,7 +13,13 @@ profile.getProfile = function(req, res){
       return res.redirect('/');
     }
 
-    res.render('profile/profile', {user: user, messages: { error: req.flash('error'), info: req.flash('info')}});
+    res.render('profile/profile', {
+      user: user,
+      messages: {
+        error: req.flash('error'),
+        info: req.flash('info')
+      }
+    });
   });
 };
 
@@ -23,7 +30,13 @@ profile.getEditProfile = function(req, res){
       return res.redirect('/');
     }
 
-    res.render('profile/profile_edit', {user: user, messages: { error: req.flash('error'), info: req.flash('info')}});
+    res.render('profile/profile_edit', {
+      user: user,
+      messages: {
+        error: req.flash('error'),
+        info: req.flash('info')
+      }
+    });
   });
 };
 
@@ -54,7 +67,7 @@ profile.updateProfile = function(req, res){
   };
 
   if(req.user){
-    User.findOneAndUpdate({_id: req.user._id}, updateObj, function(err, user){
+    User.findOneAndUpdate({ _id: req.user._id }, updateObj, function(err, user){
       if (err) {
         req.flash('error', 'Something went wrong. Try again.');
         return res.redirect('/profile/edit_profile');
@@ -92,7 +105,6 @@ profile.updatePassword = function(req, res){
     User.findOne({_id: req.user._id}, function(err, data){
 
       if(data){
-        console.log('CHECKING PASS UPDATE');
         // Compare user input of current password with database's password
         bcrypt.compare(currentPass, data.password, function(err, result){
           if (err){

@@ -6,8 +6,6 @@ require('./express-config').expressSetup(app);
 
 try {
   var uri = process.env.MONGOLAB_URI || '127.0.0.1/meetupplanner'; 
-  console.log('CONNECTING 2 ====> ', uri);
-
   mongoose.connect(uri, {}, function(err, db){
     if(err) {
       console.log('Connection Error ::: ', err);
@@ -26,5 +24,5 @@ require('./server/routes')(app);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
-  console.log('Server started at port number: ', port);
+  console.log('Server started at http://localhost:', port);
 });

@@ -8,31 +8,22 @@
     <% include ../includes/headerNavigation %>
 
     <div class="mainContainer">
-
       <section class="eventList">
-        
-        
         <div class="eventGroup">
           <h3><%= user.name %></h3>
-
           <a href="/profile/edit_profile">
             <button class="editButton">EDIT</button>
           </a>
-
           <p>
             <span class="eventLabel">Email</span><br />
             <%= user.email %>
           </p>
-
           <p>
             <span class="eventLabel">Age</span><br />
             <%= user.age %>
           </p>
-
         </div>
-
       </section>
-
     </div>
 
     <% include ../includes/footer %>
